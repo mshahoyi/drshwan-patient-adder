@@ -1,6 +1,7 @@
 {
 	"name": "drshwan-patient-adder",
 	"version": "0.1.0",
+	"homepage": "drshwan.mohammedshahoe.com",
 	"private": true,
 	"scripts": {
 		"serve": "vue-cli-service serve",
