@@ -1,26 +1,30 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+	<v-app>
+		<v-main>
+			<dpa-form></dpa-form>
+			<dpa-drug-adder></dpa-drug-adder>
+		</v-main>
+	</v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import dpaForm from "./components/Form.vue";
+import DrugAdder from "./components/DrugAdder.vue";
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
+	name: "App",
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+	components: {
+		dpaForm,
+		dpaDrugAdder: DrugAdder,
+	},
+
+	created() {
+		this.$store.commit("load");
+	},
+
+	data: () => ({
+		//
+	}),
+};
+</script>
