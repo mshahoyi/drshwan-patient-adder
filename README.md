@@ -1,6 +1,7 @@
 # drshwan-patient-adder
 
 This is a simple handy tool to minimize the time spent by junior doctors in adding patients to the Patient Management System used in Dr Shwans Cardio Clinic.
+Demo: https://muyabb.github.io/drshwan-patient-adder/
 
 ## Documentation
 

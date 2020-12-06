@@ -41,6 +41,9 @@
 				<v-btn x-large color="primary" @click="copy">
 					COPY
 				</v-btn>
+				<v-btn x-large color="secondary" @click="reset">
+					NEW PATIENT
+				</v-btn>
 			</v-card-actions>
 			<v-snackbar v-model="copied" :timeout="2000" absolute bottom left>
 				Patient data is copied
@@ -54,42 +57,44 @@ import formatter from "../model/formatter";
 import sorter from "../model/sorter";
 import { mapState } from "vuex";
 
+const initial = () => [
+	{
+		CC: "",
+	},
+	{
+		PMH: "",
+	},
+	{
+		PSH: "",
+	},
+	{
+		FH: "",
+	},
+	{
+		Drugs: [],
+	},
+	{
+		Social: "",
+	},
+	{
+		Location: "",
+	},
+	{
+		Work: "",
+	},
+	{
+		Legs: "",
+	},
+	{
+		Chest: "",
+	},
+];
+
 export default {
 	data() {
 		return {
 			copied: false,
-			patientData: [
-				{
-					CC: "",
-				},
-				{
-					PMH: "",
-				},
-				{
-					PSH: "",
-				},
-				{
-					FH: "",
-				},
-				{
-					Drugs: [],
-				},
-				{
-					Social: "",
-				},
-				{
-					Location: "",
-				},
-				{
-					Work: "",
-				},
-				{
-					Legs: "",
-				},
-				{
-					Chest: "",
-				},
-			],
+			patientData: initial(),
 		};
 	},
 
@@ -105,6 +110,10 @@ export default {
 			const filtered = this.drugs.filter((drug) => drug.match(new RegExp(queryText, "gi")));
 			console.log(filtered);
 			// return filtered.includes(item);
+		},
+
+		reset() {
+			this.patientData = initial();
 		},
 
 		copy() {
